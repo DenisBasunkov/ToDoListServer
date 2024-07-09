@@ -65,7 +65,6 @@ app.put("/api/TaskList", (req, res) => {
     console.log(User_Id)
     console.log(datas)
     if (User_Id) {
-
         db.serialize(() => {
             db.run(`UPDATE TasksList Set TasksData = ? WHERE UserId = ?`, [datas, User_Id], (err) => {
                 if (err) {
