@@ -1,6 +1,7 @@
 import express from "express"
 import { v4 as uuid4 } from "uuid"
 import multer from "multer"
+import cors from "cors"
 
 import sqlite3 from "sqlite3"
 const SQLite3 = sqlite3.verbose();
@@ -9,6 +10,8 @@ const db = new SQLite3.Database('./myDatabase.db');
 const PORT = 5000
 const upload = multer()
 const app = express()
+
+app.use(cors())
 
 app.get("/", (req, res) => {
     res.json("Hello")
